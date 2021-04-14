@@ -1,4 +1,4 @@
-package Data;
+package EjerciciosBasicos2;
 
 import java.util.Scanner;
 
@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduce un número: ");
+        int number = scanner.nextInt();
+        char valorletra = (char) number;
+        System.out.println("Tu valor en ASCII es " + valorletra);
 
     }
 
