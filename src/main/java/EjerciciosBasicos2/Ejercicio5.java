@@ -10,7 +10,6 @@ public class Ejercicio5 {
         }
     }
 
-
 }
 /* otra forma de hacerlo
 int numero= 1;

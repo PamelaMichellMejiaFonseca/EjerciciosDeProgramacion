@@ -13,7 +13,7 @@ public class Ejercicio3 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce el precio de un producto para calcular el IVA: ");
         double precio = scanner.nextInt();
-       //Obtenemos el precio final (precio*IVA)
+       //Obtenemos el precio final multiplicando (precio*IVA)
         double precioFinal=(precio * IVA);
         System.out.println("El precio del producto con el IVA incluido es: " + precioFinal);
     }

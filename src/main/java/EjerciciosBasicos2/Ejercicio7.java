@@ -25,7 +25,7 @@ public class Ejercicio7 {
         for(int i = 1; i <= venta; i++ ){
             System.out.println("Escribe el precio de cada producto " + i);
             precioProducto = scannerProduct.nextDouble();
-            preciofinal += precioProducto;
+            preciofinal += precioProducto; //el precio final es la suma de los productos
         }
         System.out.println("El total del de todo los productos es: " + preciofinal);
 

@@ -12,10 +12,10 @@ import java.util.Scanner;
 public class Ejercicio1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduce un número: ");
+        System.out.print("Introduce un número: "); //pedir por pantalla el número
         int number = scanner.nextInt();
-        char valorletra = (char) number;
-        System.out.println("Tu valor en ASCII es " + valorletra);
+        char valorletra = (char) number; //convertir el  numero a letra
+        System.out.println("Tu valor en ASCII es " + valorletra); //devolver los datos optenidos
 
     }
 
