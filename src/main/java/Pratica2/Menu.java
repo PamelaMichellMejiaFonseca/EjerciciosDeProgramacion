@@ -4,19 +4,39 @@ import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
-    static Scanner sc = new Scanner(System.in);
+    public static boolean devolver = true; //variable que si no se cumple el valor que tiene el menu se cerrara
+
 
     public static void main(String[] args) {
-        int menuOpcion;
 
-        do {
+        while(devolver) {
 
-
-            opciones = sc.nextInt();
-            switch (menuOpcion) {
+            System.out.println("---------- M E N Ú  P R I N C I P A L --------");
+            System.out.println(" ---------------------------------------------");
+            System.out.println("Elige el número de la opción con la que quieres trabajar");
+            System.out.println("1.Muestra por orden los números introducidos");
+            System.out.println("2.Muestra por orden inverso los números introducidos");
+            System.out.println("3.Media de positivos y negativos con 5 números introducidos");
+            System.out.println("4. Retorna el número de carácteres sin contar los espacios del texto introducido");
+            System.out.println("5.Muestra al revés un texto introducido");
+            System.out.println("6.Muestra sin espacio un texto introducido");
+            System.out.println("7.Muestra la unión de dos textos introducidos");
+            System.out.println("8.Sustituye las vocales de un texto introducido por la vocal deseada");
+            System.out.println("9.Muestra el código ASCII de cada carácter del texto introducido");
+            System.out.println(" ");
+            System.out.println("0.SALIR DEL MENÚ ");
+            System.out.println(" ");
+            int menuOpciones = Integer.parseInt(pregunta("Elige el número de la opción con la que quieres trabajar"));
+            /*
+             * Cada uno de los metodos son elegidos por la variable que he declarado antes.
+             * Switch con cada uno de los metodos que se pueden realizar dentro de la aplicación
+             */
+            switch (menuOpciones) {
                 case 1:
                     pedirNumeros();
                     break;
@@ -48,37 +68,42 @@ public class Menu {
                     System.out.println("El proceso a finalizado.");
                     break;
                 default:
+                    System.out.println("Se a producido un error");
+                    break;
 
             }
-        } while (menuOpcion != 0);
+            System.out.println("Enter para continuar ");
+            Scanner sc = new Scanner(System.in);
+            String entrada = sc.nextLine();
+        } 
     }
      /*
      *Para hacer la pregunta directamente y sin no es correcta dara un el mensaje de error
-     * lo utilizo en alguno de los metodos no en todos
+     * Esto nos permite una mejor opción porque si se produce un error no mostrara la pantalla roja indicandonos un error  del sistema que lo que el usuario no tiene que ver
+     * si no que nos mostrara un mensaje indicandonos hay un error porque el usuario no debe saber que dentro del codigo hay un error.
       */
 
     public static String pregunta(String text) {
-        String value = " ";
+        String numeroValor = " ";
         try {
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader bf = new BufferedReader(isr);
             System.out.print(text + ": ");
-            value = bf.readLine();
+            numeroValor = bf.readLine();
         } catch (IOException ex) {
             System.out.println("Tienes un error");
         }
-        return value;
+        return numeroValor;
     }
 
     /*
-    Case numero 1.
+    Case numero 1
      */
     public static void pedirNumeros(){
         int valor[] = new int[5];
         for(int i=0; i<valor.length; i++)
         {
-            System.out.println("Introduce el número: ");
-            valor[i] = sc.nextInt();
+            System.out.println(pregunta("Introduce el número: " + i));
         }
         System.out.println("Los números en el orden introducidos son: ");
         for(int i=0; i<valor.length; i++){
@@ -91,8 +116,8 @@ public class Menu {
     public static void numerosInversa(){
         int valorInversa[] = new int[5];
         for(int i=0; i < valorInversa.length; i++){
-            System.out.println("Introduce el número:");
-            valorInversa[i] = sc.nextInt();
+            System.out.println(pregunta("Introduce el número:" + i));
+
         }
         for (int i = valorInversa.length - 1; i >= 0; i--) {
             System.out.println(valorInversa[i]);
@@ -178,9 +203,31 @@ public class Menu {
         String texto1 = pregunta("Introduce la primera palabra o texto");
         String texto2 = pregunta("Introduce la segunda palabra o texto");
         System.out.println("El resultado de union es:");
-        System.out.println(texto1.concat( " " + texto2));//método para concatenar espacios
+        System.out.println(texto1.concat(texto2));//método para concatenar espacios
+
+    }/*
+     *Case 8
+     */
+    public static void sustituirVocales(){
+        String texto = pregunta("Introduce una palabra o un texto ");
+        String vocal = pregunta("Introduce una vocal");
+
+        String arrayVocales= "[aeiou]"; // el array con las vocales que pueden ser introducidas
+        System.out.println(texto.replaceAll(arrayVocales, vocal));
 
     }
+    /*
+     *Case 9
+     */
+    public static void  codigoASCII (){
+        String texto = pregunta("Introduce un texto");
+        byte[] ntexto = texto.getBytes(StandardCharsets.UTF_8);
+        System.out.println("El valor ASCII de tu texto es:");
+        System.out.println(Arrays.toString(ntexto));
+    }
+
+
+
 
 
 
