@@ -105,13 +105,14 @@ public class Menu {
      */
     public static void pedirNumeros() {
         int valor[] = new int[5];
-        for (int i = 0; i < valor.length; i++) {
+        for (int i = 1; i < valor.length; i++) {
             System.out.println(pregunta("Introduce el número: " + i));
         }
-        System.out.println("Los números en el orden introducidos son: ");
+
         for (int i = 0; i < valor.length; i++) {
             System.out.println(valor[i]);
         }
+        System.out.println("Los números en el orden introducidos son: ");
     }
 
     /*
